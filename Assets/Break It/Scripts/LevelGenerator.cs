@@ -154,7 +154,8 @@ public class LevelGenerator : MonoBehaviour {
 	public void SetLength(int levelLength){
 		if (level == 0) { this.levelLength = 13; }
 		if (level > 0 && level < 6 ) { this.levelLength = 20; }
-		else { this.levelLength = 30; }
+		if (level > 6 && level < 10 ) { this.levelLength = 30; }
+		else { this.levelLength = 40; }
 		
 	}
 	
