@@ -290,7 +290,7 @@ public class Player : MonoBehaviour {
 	
 	//remove player and reload the scene
 	void Die(){
-		GameObject.FindObjectOfType<GameManager>().ReloadScene(1f);
+		GameObject.FindObjectOfType<GameManager>().LoseCanvasTrue();
 		
 		StartCoroutine(cam.Shake(0.1f, 0.2f));
 				

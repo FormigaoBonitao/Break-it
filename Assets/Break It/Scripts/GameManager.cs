@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 	public Animator shopLabel;
 	public GameObject shopPanel;
 	public GameObject tutorialPanel;
+	public GameObject LoseCanvas;
 	public Animator camZoom;
 	public CameraMovement cam;
 	
@@ -67,7 +68,30 @@ public class GameManager : MonoBehaviour {
 			progressBar.fillAmount = percentage;
 		}
 	}
-	
+
+	public void LoseCanvasTrue()
+    {
+		LoseCanvas.SetActive(true);
+    }
+	public void ReloadScene(float delay)
+	{
+		TryAd();
+		lose.Play();
+
+		StartCoroutine(Load(delay));
+	}
+
+	//wait for a while, show the black fade effect and load the current scene
+	IEnumerator Load(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+
+		fade.SetTrigger("Fade");
+
+		yield return new WaitForSeconds(0.4f);
+
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
 	//start the game by showing game UI and enabling the camera script
 	void StartGame(){
 		startPanel.SetTrigger("Fade out");
@@ -87,23 +111,7 @@ public class GameManager : MonoBehaviour {
 	}
     
 	//play lose sound and reload scene to restart this level
-	public void ReloadScene(float delay){
-		TryAd();
-		lose.Play();
-		
-		StartCoroutine(Load(delay));
-	}
 	
-	//wait for a while, show the black fade effect and load the current scene
-	IEnumerator Load(float delay){
-		yield return new WaitForSeconds(delay);
-		
-		fade.SetTrigger("Fade");
-		
-		yield return new WaitForSeconds(0.4f);
-		
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
 	
 	//add some points to the score
 	public void AddPoints(int points){
