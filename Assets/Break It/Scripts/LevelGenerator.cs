@@ -31,11 +31,13 @@ public class LevelGenerator : MonoBehaviour {
 	
 	Transform parent;
 	int levelLength;
+	public int level;
 	
 	void Awake(){
 		//create a parent transform to parent the platforms to
 		parent = new GameObject().transform;
 		parent.name = "Level";
+		level = PlayerPrefs.GetInt("Level");
 	}
 	
 	void Start(){		
@@ -150,7 +152,10 @@ public class LevelGenerator : MonoBehaviour {
 	
 	//set levellength (before generating)
 	public void SetLength(int levelLength){
-		this.levelLength = levelLength;
+		if (level == 0) { this.levelLength = 13; }
+		if (level > 0 && level < 6 ) { this.levelLength = 20; }
+		else { this.levelLength = 30; }
+		
 	}
 	
 	//get level length

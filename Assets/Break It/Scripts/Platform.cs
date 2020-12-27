@@ -46,12 +46,12 @@ public class Platform : MonoBehaviour {
 			obstacles[i].transform.parent = null;
 			
 			Rigidbody rb = obstacles[i].GetComponent<Rigidbody>();
-			//rb.isKinematic = false;
+			rb.isKinematic = false;
 			
 			Vector3 dir = (rb.transform.position - playerPos).normalized;
 			dir.y = Random.Range(-1f, 1f);
 			
-			//rb.AddForce(dir * 500);
+			rb.AddForce(dir * 500);
 			rb.AddTorque(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 500);
 			
 			obstacles[i].GetComponent<Collider>().enabled = false;

@@ -145,8 +145,8 @@ public class Player : MonoBehaviour {
 			
 			Platform platform = other.transform.parent.GetComponent<Platform>();
 			platform.BreakCenter();
-			rb.AddForce(Vector3.down * 5, ForceMode.Impulse );
-			StartCoroutine(cam.Shake(0.1f, 0.15f));
+			rb.AddForce(Vector3.down * 8, ForceMode.Impulse );
+			//StartCoroutine(cam.Shake(0.1f, 0.15f));
 
 			powerup.AddPower();
 			Debug.Log("broke");
@@ -163,10 +163,10 @@ public class Player : MonoBehaviour {
             return;
         }
 
-		
+
         //stop here if the animation is playing
-        //if(animPlaying)
-        //	return;
+        //if (animPlaying)
+        //    return;
 
         //if we're just jumping, play the jump animation
         if (!fullForce){
@@ -300,33 +300,33 @@ public class Player : MonoBehaviour {
 	
 	//instantiates the paint effect when player lands
 	void PaintEffect(){
-		if(PaintClose())
-			return;
-		
+        if (PaintClose())
+            return;
+
 		bool muchPaint = Mathf.Abs(rb.velocity.y) > muchPaintTreshold;
 		GameObject paintSplat = muchPaint ? paintSplats[2] : paintSplats[Random.Range(0, paintSplats.Length - 1)];
-		
+
 		RaycastHit hit;
-		
-		if(!Physics.Raycast(transform.position + Vector3.up, -Vector3.up, out hit))
-			return;
-		
-		Vector3 hitPos = hit.point;
-		
-		hitPos.z = paintSplat.transform.position.z;
-		hitPos.y += 0.02f;
-		
-		Quaternion rot = paintSplat.transform.rotation;
-		
-		GameObject paint = Instantiate(paintSplat, hitPos, rot);
-		
-		Transform other = hit.collider.gameObject.transform;
-		
-		paint.transform.SetParent(other, true);
-		
-		//update the paint splat color to the current player color
-		paint.GetComponent<Paint>().SetColor(color);
-	}
+
+        if (!Physics.Raycast(transform.position + Vector3.up, -Vector3.up, out hit))
+            return;
+
+        Vector3 hitPos = hit.point;
+
+        hitPos.z = paintSplat.transform.position.z;
+        hitPos.y += 0.02f;
+
+        Quaternion rot = paintSplat.transform.rotation;
+
+        GameObject paint = Instantiate(paintSplat, hitPos, rot);
+
+        Transform other = hit.collider.gameObject.transform;
+
+        paint.transform.SetParent(other, true);
+
+        //update the paint splat color to the current player color
+        paint.GetComponent<Paint>().SetColor(color);
+    }
 	
 	//check if there's already paint with the same color before adding more paint
 	bool PaintClose(){
@@ -353,7 +353,7 @@ public class Player : MonoBehaviour {
 		meshAnimator.enabled = true;
 		meshAnimator.SetTrigger("Play");
 		
-		PaintEffect();
+		//PaintEffect();
 		rb.velocity = Vector3.up * jumpForce;
 		
 		jumpAudio.Play();

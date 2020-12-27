@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour {
 			level = levels.Length - 1;
 		
 		//set the level length and adjust the background color
-		generator.SetLength(levels[20].length);
+		generator.SetLength(levels[0].length);
 		backgroundMat.color = levels[level].color;
 		
 		//show the correct labels on the progress indicator
