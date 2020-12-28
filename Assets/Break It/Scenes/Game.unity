@@ -1676,7 +1676,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.28764686, g: 0.45476854, b: 0.6037736, a: 0}
+  m_BackGroundColor: {r: 0.8962264, g: 0.12682447, b: 0.39514688, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9650,9 +9650,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - length: 25
-    color: {r: 0.34901962, g: 0.560114, b: 0.7176471, a: 1}
+    color: {r: 0.8962264, g: 0.12682447, b: 0.39514688, a: 1}
   - length: 25
-    color: {r: 0.6603774, g: 0.12771448, b: 0.16344044, a: 1}
+    color: {r: 0.31612673, g: 0.9056604, b: 0.69026667, a: 1}
   - length: 30
     color: {r: 0.30153078, g: 0.8301887, b: 0.7498841, a: 1}
   - length: 35
@@ -9664,7 +9664,7 @@ MonoBehaviour:
   - length: 50
     color: {r: 0.34901962, g: 0.7140377, b: 0.7176471, a: 1}
   - length: 55
-    color: {r: 1, g: 0.5324543, b: 0.25, a: 1}
+    color: {r: 0.6509434, g: 0.3257289, b: 0.12896048, a: 1}
   - length: 60
     color: {r: 0.062566735, g: 0.6981132, b: 0.52546924, a: 1}
   - length: 65
@@ -15751,7 +15751,6 @@ GameObject:
   - component: {fileID: 1386833337460797765}
   - component: {fileID: 1386833337460797766}
   - component: {fileID: 1386833337460797768}
-  - component: {fileID: 1386833337460797767}
   - component: {fileID: 1386833337460797769}
   m_Layer: 0
   m_Name: Player
@@ -15811,7 +15810,7 @@ MonoBehaviour:
   glowTime: 0.2
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   line: {fileID: 1618079965}
-  color: {r: 0, g: 1, b: 0.5182471, a: 0.45490196}
+  color: {r: 0, g: 1, b: 0.5182471, a: 1}
   paintSplats:
   - {fileID: 628211357633422768, guid: 5cc14bb02ef606a4aaa6dad8a5fcaa97, type: 3}
   - {fileID: 5583707190996057916, guid: 6a84a14dfa43f9740ad0539e3c09d2fa, type: 3}
@@ -15826,19 +15825,6 @@ MonoBehaviour:
   jumpAudio: {fileID: 1386833337460797769}
   bullet: 0
   animPlaying: 0
---- !u!65 &1386833337460797767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386833337460797763}
-  m_Material: {fileID: 13400000, guid: 3db88d0b0e3d93641b4759485f7e1ec0, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.02, z: 0.02}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1386833337460797768
 MonoBehaviour:
   m_ObjectHideFlags: 0
