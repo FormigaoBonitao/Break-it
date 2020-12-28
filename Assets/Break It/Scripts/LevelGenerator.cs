@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour {
 	public float range;
 	public GameObject[] platforms;
 	public GameObject finalPlatform;
+	public GameObject thefirstPlatform;
 	public float obstacleRemoveDistance;
 	public int randomObstacles;
 	
@@ -40,13 +41,20 @@ public class LevelGenerator : MonoBehaviour {
 		level = PlayerPrefs.GetInt("Level");
 	}
 	
-	void Start(){		
+	void Start(){
+		SpawnFirst();
 		//spawn all platforms for this level
-		for(int i = 0; i < levelLength; i++){
+		for (int i = 0; i < levelLength; i++){
 			SpawnNew(i == levelLength - 1);
 		}
+		
 	}
 	
+	public void SpawnFirst()
+    {
+		GameObject firstPlatform = Instantiate(thefirstPlatform, new Vector3(0, 1.5f, 0), transform.rotation);
+		firstPlatform.transform.parent = parent.transform;
+    }
 	public void SpawnNew(bool lastOne){
 		//create new platform
 		GameObject platform = lastOne ? finalPlatform : platforms[Random.Range(0, platforms.Length)];
